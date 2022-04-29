@@ -27,8 +27,7 @@ class ProductStore(Product):
                     self.product['ANMOUNT'] += self.anmount
         else:
             self.storage[Product] = self.product
-                        'ANMOUNT' : anmount}
-
+ 
     def set_discount(identifier, percent, identifier_type='name'):
         pass
 
