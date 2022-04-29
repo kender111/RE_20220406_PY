@@ -28,24 +28,6 @@ class ProductStore(Product):
         else:
             self.storage[Product] = self.product
 
-    def add(self, Product, anmount):
-       print(self.product, end = '\n\n\n')
-       for i in self.storage.keys():
-            temp_v = 0
-            if i == id(Product): 
-                for ind in self.product.keys():
-                    self.product['ANMOUNT'] += self.anmount
-                    #print(ind, self.product)
-
-                for ind in self.product.values():
-                    self.product['ANMOUNT'] += self.anmount
-        else:
-             self.product = {'TYPE' : Product.ti, 
-                        'NAME' : Product.name, 
-                        'PRICE' : Product.price,
-                        'ANMOUNT' : anmount}
->>>>>>> main
-
 
     def set_discount(identifier, percent, identifier_type='name'):
         pass
