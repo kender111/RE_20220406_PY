@@ -7,7 +7,7 @@ class Product:
 class ProductStore(Product):
     def __init__(self):
         self.storage = {}
-'''
+
     def add(self, Product, anmount):
         self.product = {'TYPE' : Product.ti, 
                         'NAME' : Product.name, 
