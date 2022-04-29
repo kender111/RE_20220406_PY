@@ -7,11 +7,7 @@ class Product:
 class ProductStore(Product):
     def __init__(self):
         self.storage = {}
-<<<<<<< HEAD
 
-=======
-'''
->>>>>>> main
     def add(self, Product, anmount):
         self.product = {'TYPE' : Product.ti, 
                         'NAME' : Product.name, 
@@ -31,9 +27,7 @@ class ProductStore(Product):
                     self.product['ANMOUNT'] += self.anmount
         else:
             self.storage[Product] = self.product
-<<<<<<< HEAD
-=======
-'''
+
     def add(self, Product, anmount):
        print(self.product, end = '\n\n\n')
        for i in self.storage.keys():
