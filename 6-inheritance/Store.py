@@ -1,6 +1,6 @@
 class Product:
     def __init__(self, ti, name, price):
-        self.tp = ti
+        self.ti = ti
         self.name = name
         self.price = price
         
@@ -14,7 +14,7 @@ class ProductStore:
         if product.name in self.products:
             self.products[product.name]['amount'] += amount
         else:
-            self.products[product.name] = {'type': product.tp,
+            self.products[product.name] = {'type': product.ti,
                                            'price': product.price,
                                            'amount': amount}
 
