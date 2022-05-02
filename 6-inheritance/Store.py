@@ -7,7 +7,7 @@ class Product:
         
 class ProductStore:
     def __init__(self):
-        self.products = {} # склад = словарь словарей, name - ключ
+        self.products = {}
         self.income = 0
         
     def add(self, product, amount):
