@@ -46,7 +46,7 @@ class ProductStore:
     def get_all_products(self):
         for p in self.products:
             for n in p:
-                print(k, p[n])
+                print(n, p[n])
         return self.products
 
     def get_product_info(self, product_name):
