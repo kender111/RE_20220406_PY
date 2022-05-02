@@ -6,64 +6,65 @@ class Product:
 
 class ProductStore(Product):
     def __init__(self):
-        self.storage = {}
+        self.products  = {}
+        self.income = 0
 
-    def add(self, Product, anmount):
-        self.product = {'TYPE' : Product.ti, 
-                        'NAME' : Product.name, 
-                        'PRICE' : Product.price,
-                        'ANMOUNT' : anmount}
-        print(self.product, end = '\n\n\n')
-
-        for i in self.storage.keys():
-            temp_v = 0
-            if i == id(Product): 
-
-                for ind in self.product.keys():
-                    self.product['ANMOUNT'] += self.anmount
-                    #print(ind, self.product)
-
-                for ind in self.product.values():
-                    self.product['ANMOUNT'] += self.anmount
+    def add(self, product, amount):
+        if product.name in self.products:
+            self.products[product.name]['amount'] += amount
         else:
-            self.storage[Product] = self.product
-
+            self.products[product.name] = {'TYPE' : product.ti,  
+                                          'price' : product.price,
+                                          'amount' : amount}
 
     def set_discount(identifier, percent, identifier_type='name'):
-        pass
+        if 0 > percent or percent > 100:
+            raise ValueError('Некоректне значення знижки')
+        
+        if identifier_type == 'name':
+            if identify in self.products: 
+                p = self.products[identify]
+                p['price'] = p['price'] * (1 - percent / 100.0)
+            else:
+                raise ValueError('Не існує ідентифікатора такого типу')
+        elif identifier_type == 'type':
+            for p in self.products:
+                if p['type'] == identify:
+                    p['price'] = p['price'] * (1 - percent / 100.0)
 
-    def sell_product(product_name, amount):
-        pass
-
+    def sell_product(self, product_name, amount):
+        if self.products[product_name]['amount'] < amount:
+            raise ValueError('Недостатньо товару на складі')
+        else:
+            self.income +=amount * self.products[product_name]['price']
+            self.products[product_name]['amount'] -= amount
+            
     def get_income(self):
-        pass
+        return self.income
 
     def get_all_products(self):
-        return self.storage
+        for p in self.products:
+            for n in p:
+                print(n, p[n])
+        return self.products
 
-    def get_product_info(product_name):
-        pass
+    def get_product_info(self, product_name):
+        p = self.products[product_name]
+        for k in p:
+            print(k, p[k])
+        return product_name, p['amount']
 
 p = Product('Sport', 'Football T-Shirt', 100)
 p2 = Product('Food', 'Ramen', 1.6)
-p3 = Product('Еда', 'невкусна', 3)
-p4 = Product('Шмотка', 'рвана', 2)
+
 s = ProductStore()
-#print(p, p2, p3, p4)
 
-s.add(p, 1000)
-s.add(p2, 2000)
-s.add(p3, 3000)
-#s.add(p4, 4000)
-s.add(p, 1)
-s.add(p2, 2)
-s.add(p3, 3)
-#s.add(p4, 4)
+
+s.add(p, 100)
+s.add(p2, 300)
 
 
 
-'''
-#s.sell(‘Ramen’, 10)
+s.sell_product('Ramen', 10)
+assert s.get_product_info('Ramen') == ('Ramen', 290)
 
-
-assert s.get_product_info(‘Ramen’) == (‘Ramen’, 290)'''
